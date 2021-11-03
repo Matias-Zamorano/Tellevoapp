@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar color="colorfav">
+    <ion-title>Recuperar contraseña</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding class="background">
+
+  <hr>
+  <ion-item>
+    <ion-label position="floating">contraseña</ion-label>
+    <ion-input type="password"></ion-input>
+  </ion-item>
+
+  
+  <ion-item>
+    <ion-label position="floating">Confirmar contraseña</ion-label>
+    <ion-input type="password"></ion-input>
+  </ion-item>
+<hr>
+  <ion-button expand= "block" (click)="guardar_contra()" >Guardar nueva contraseña</ion-button> <!--BOTON FALSO QUE SIRVE SOLO PARA MANDAR EL MENSAJE -->
+  <ion-button expand= "block" (click)="volver_inicio()" >pagina de inicio</ion-button>
+
+</ion-content>
+
