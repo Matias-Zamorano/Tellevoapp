@@ -3,50 +3,54 @@
     <ion-buttons slot="start" (click)="openMenu()" >
     <ion-menu-button autoHide="false"></ion-menu-button>
   </ion-buttons>
-    <ion-title>Bienvenido </ion-title>
+    <ion-title>Te llevo app  </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
 
-
-<ion-label><h1>Bienvenido {{dato}}</h1></ion-label>
-<hr>
-<ion-card>
-  <img src="assets/img/imagen1.jpg">
-  <ion-card-header>
-    <ion-card-title>Registrar viaje</ion-card-title>
-  </ion-card-header>
-
-  <ion-card-content>
-    Si cuenta con movilizacion dirigirse a registrar su viaje.
-  </ion-card-content>
-</ion-card>
-
-  <div>
-    <ion-label>
-      <ion-button expand= "block" (click)="programar_viaje()" >Programar viaje </ion-button> <!--BOTON FALSO-->
-    </ion-label>
-  </div>
+  <ion-label><h1>Bienvenido {{dato}}</h1></ion-label>
   <hr>
-  <hr>
-  <ion-card>
-    <img src="assets/img/imagen2.jpg">
-    <ion-card-header>
-      <ion-card-title>Movilizar viaje</ion-card-title>
-    </ion-card-header>
+    <ion-card>
+     <img src="assets/img/imagen1.jpg">
+      <ion-card-header>
+       <ion-card-title>Registrar viaje</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+       Si cuenta con movilizacion dirigirse a registrar su viaje.
+      </ion-card-content>
+    </ion-card>
+
+    <div>
+      <ion-label>
+       <ion-button  mode="ios" expand= "block" (click)="programar_viaje()" >Programar viaje </ion-button> <!--BOTON FALSO-->
+      </ion-label>
+    </div>
+
+    <hr>
+    <hr>
+
+    <ion-card>
+      <img src="assets/img/imagen2.jpg">
+      <ion-card-header>
+       <ion-card-title>Movilizar viaje</ion-card-title>
+      </ion-card-header>
   
-    <ion-card-content>
-      En el caso de que hoy no tenga como movilizarse busque el vehiculo mas cercano para que lo pueda llevar a su destino.
-    </ion-card-content>
-  </ion-card>
+      <ion-card-content>
+       En el caso de que hoy no tenga como movilizarse busque el vehiculo mas cercano para que lo pueda llevar a su destino.
+      </ion-card-content>
+    </ion-card>
 
-  <div>
-    <ion-label>
-      
-      <ion-button expand= "block" (click)="buscar_vehiculo()" >Buscar vehiculo disponible </ion-button> <!--BOTON FALSO-->
-    </ion-label>
-  </div>
+    <ion-segment (ionChange)="segmentChanged($event)">
+   <div>
+   
+      <ion-label>
+       <ion-button  mode="ios" expand= "block" (click)="buscar_vehiculo()" >Buscar vehiculo disponible </ion-button> <!--BOTON FALSO-->
+      </ion-label>
+    
+   </div>
+  </ion-segment>
 
 
 </ion-content>

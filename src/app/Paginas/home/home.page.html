@@ -19,7 +19,7 @@
     <hr>
     <hr>
     <hr>
-    <form [formGroup]="formulariohome">
+    <form [formGroup]="formulariohome"(keyup.enter)="ingresar()">
       <ion-item>
         <ion-label position="floating">Nombre de usuario</ion-label>
         <ion-input formControlName="nombre" placeholder="Ingrese su nombre de usuario" type="" [(ngModel)]="dato" ></ion-input>  <!--ESTE DATO SE GUARDADARA CADA VES QUE SE OCUPE EL NOMBRE--> 
@@ -30,19 +30,20 @@
         <ion-input formControlName="password" placeholder="Ingrese su contraseña" type="password"></ion-input>
       </ion-item>
     </form>
-    <hr>
-    <ion-button expand="block"  (click)="ingresar()">Ingresar</ion-button> <!--ESTE BOTON LO MANDARA A CENTRAL-->
+    
+    <br>
+    <ion-button  mode="ios" expand="block"  (click)= "ingresar()">Ingresar</ion-button> <!--ESTE BOTON LO MANDARA A CENTRAL-->
      
-    <ion-button expand="block"  (click)="recuperar()">Recuperar contraseña</ion-button><!--ESTE BOTON LO MANDARA A LOGIN2-->
+    <ion-button  mode="ios" expand="block"  (click)="recuperar()">Recuperar contraseña</ion-button><!--ESTE BOTON LO MANDARA A LOGIN2-->
     
     <hr>
     <hr>
 
     <div>
-      <p>nuevo en la plataforma ? </p>
+      <h5>nuevo en la plataforma ? </h5>
     </div>
     
-    <ion-button expand="block" (click)="crear()" >Crear usuario</ion-button><!--ESTE BOTON LO MANDARA A LOGIN-->
+    <ion-button  mode="ios" expand="block" (click)="crear()" >Crear usuario</ion-button><!--ESTE BOTON LO MANDARA A LOGIN-->
 
     
   </div>

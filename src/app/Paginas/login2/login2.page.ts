@@ -1,6 +1,7 @@
 import { Component,  } from '@angular/core';
 import { ActivatedRoute,NavigationExtras ,Router } from '@angular/router';
-import { ToastController } from '@ionic/angular';
+import { AlertController, ToastController } from '@ionic/angular';
+import { FormGroup,FormControl,Validators,FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-login2',
@@ -9,8 +10,9 @@ import { ToastController } from '@ionic/angular';
 })
 export class Login2Page{
   dato:any;
+  formulariologin2:FormGroup;
 
-  constructor(public toastController: ToastController, private activeroute2:ActivatedRoute, private router2: Router) { 
+  constructor(public fb:FormBuilder,public alertController:AlertController,public toastController: ToastController, private activeroute2:ActivatedRoute, private router2: Router) { 
     
     this.activeroute2.queryParams.subscribe(params =>{
       if(this.router2.getCurrentNavigation().extras.state){
@@ -18,11 +20,30 @@ export class Login2Page{
         console.log(this.dato)
       }
     });
+
+    this.formulariologin2 =this.fb.group({
+      'password':             new FormControl ("",Validators.required),
+      'confirmacionPassword': new FormControl ("",Validators.required)
+    });
   };
 
-  guardar_contra(){
-    //llama al boton falso
-    this.presentToast();
+  async guardar_contra(){
+    //va guardar la contraseña y la antigua 
+    var f = this.formulariologin2.value;
+    if(this.formulariologin2.invalid){
+      const alert = await this.alertController.create({
+        header:"Error al guardar",
+        message: "Ingrese los datos correctamente",
+        buttons: ['aceptar']
+      });
+      await alert.present();
+      
+      return;
+    }
+    var usuario = {
+      password: f.password
+    }
+    localStorage.setItem('usuario',JSON.stringify(usuario));  
   }
 
   async presentToast() {

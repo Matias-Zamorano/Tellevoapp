@@ -7,19 +7,21 @@
 <ion-content padding class="background">
 
   <hr>
-  <ion-item>
-    <ion-label position="floating">contraseña</ion-label>
-    <ion-input type="password"></ion-input>
-  </ion-item>
+  <form [formGroup]="formulariologin2" (keyup.enter)="guardar_contra()">
+    <ion-item>
+      <ion-label position="floating">contraseña</ion-label>
+      <ion-input formControlName="password" type="password"></ion-input>
+    </ion-item>
 
   
-  <ion-item>
-    <ion-label position="floating">Confirmar contraseña</ion-label>
-    <ion-input type="password"></ion-input>
-  </ion-item>
-<hr>
-  <ion-button expand= "block" (click)="guardar_contra()" >Guardar nueva contraseña</ion-button> <!--BOTON FALSO QUE SIRVE SOLO PARA MANDAR EL MENSAJE -->
-  <ion-button expand= "block" (click)="volver_inicio()" >pagina de inicio</ion-button>
+    <ion-item>
+      <ion-label position="floating">Confirmar contraseña</ion-label>
+      <ion-input formControlName="confirmacionPassword" type="password"></ion-input>
+    </ion-item>
+    <hr>
+    <ion-button expand= "block" (click)="guardar_contra()" >Guardar nueva contraseña</ion-button> <!--BOTON FALSO QUE SIRVE SOLO PARA MANDAR EL MENSAJE -->
+    <ion-button expand= "block" (click)="volver_inicio()" >pagina de inicio</ion-button>
 
+  </form>
 </ion-content>
 

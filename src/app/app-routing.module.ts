@@ -9,7 +9,7 @@ const routes: Routes = [
   {
     path: '',
     redirectTo: 'home',
-    pathMatch: 'full'
+    pathMatch: 'full' 
   },
   {
     path: 'login',
@@ -23,6 +23,7 @@ const routes: Routes = [
     path: 'login2',
     loadChildren: () => import('./Paginas/login2/login2.module').then( m => m.Login2PageModule)
   },
+  
 ];
 
 @NgModule({

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
-import { ToastController } from '@ionic/angular';
+import { AlertController, ToastController } from '@ionic/angular';
 import { MenuController } from '@ionic/angular';
 import { FormGroup,FormControl,Validators,FormBuilder } from '@angular/forms';
 @Component({
@@ -15,7 +15,7 @@ export class HomePage {
    img:string;
    formulariohome: FormGroup;
 
-   constructor( public fb:FormBuilder,public toastController:ToastController, private activeroute:ActivatedRoute ,private router: Router , private menu : MenuController) {
+   constructor( public fb:FormBuilder,public alertController:AlertController ,public toastController:ToastController, private activeroute:ActivatedRoute ,private router: Router , private menu : MenuController) {
 
     this.activeroute.queryParams.subscribe(params =>{
       if(this.router.getCurrentNavigation().extras.state){
@@ -23,12 +23,11 @@ export class HomePage {
         console.log(this.dato)
       }
     });
-
+    
     this.formulariohome =this.fb.group({
       'nombre': new FormControl ("",Validators.required),
       'password': new FormControl ("",Validators.required)
-    })
-
+    });
    }
    
     ngOnInit(){
@@ -37,14 +36,30 @@ export class HomePage {
 
 
 
- ingresar(){ //esto es para enviar en enlace para la pagina llamada central
+  async ingresar(){ //esto es para enviar en enlace para la pagina llamada central
    //declaro e instancio un elemento de tipo naviationExtras
    let NavigationExtras: NavigationExtras={
      state:{dato:this.dato}
     };
-   //navego hacia la pagina central y envio parametro
+   //navego hacia la pagina central y envio parametro  
    this.router.navigate(['/central'],NavigationExtras);
- } 
+
+   var f = this.formulariohome.value;
+
+   var usuario = JSON.parse(localStorage.getItem('usuario'));
+   if (usuario.nombre ==f.nombre && usuario.password == f.password){
+     console.log('ingresado'); 
+   }else{
+    const alert = await this.alertController.create({
+      header:"Error al ingresar",
+      message: "Ingrese los datos correctamente",
+      buttons: ['aceptar']
+    });
+   }
+  } 
+
+ 
+
 
  crear(){ 
    let NavigationExtras1: NavigationExtras={

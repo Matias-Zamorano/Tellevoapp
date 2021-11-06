@@ -5,33 +5,33 @@
 </ion-header>
 
 <ion-content padding class="background" >
-
+ <form [formGroup]="formulariologin" (keyup.enter)="guardar_usuario()">
   <hr>
         <ion-item>
           <ion-label position="floating">Nombre y apellido</ion-label>
-          <ion-input type=""></ion-input>  <!--ESTE DATO SE GUARDADARA CADA VES QUE SE OCUPE EL NOMBRE--> 
+          <ion-input formControlName="nombre" type=""></ion-input>  <!--ESTE DATO SE GUARDADARA CADA VES QUE SE OCUPE EL NOMBRE--> 
         </ion-item>
 
         <ion-item>
           <ion-label position="floating">Contraseña</ion-label>
-          <ion-input type="password"></ion-input>
+          <ion-input formControlName="password" type="password"></ion-input>
         </ion-item>
 
         <ion-item>
           <ion-label position="floating">Numero telefonico</ion-label>
-          <ion-input type="number"></ion-input>
+          <ion-input formControlName="numero" type="number"></ion-input>
         </ion-item>
 
         <ion-item>
           <ion-label position="stacked">Fecha de cumpleaños</ion-label>
-          <ion-input type="date"></ion-input>
+          <ion-input formControlName="fecha" type="date"></ion-input>
         </ion-item>
         
         <ion-item>
-          <ion-label position="floating">Correo</ion-label>
-          <ion-input type="email"></ion-input>
+          <ion-label position="floating">Correo electronico</ion-label>
+          <ion-input formControlName="correo" type="email"></ion-input>
         </ion-item>
-
+  </form>
         <hr>
 
         <ion-button expand= "block"  (click)="guardar_usuario()" >Guardar usuario </ion-button> <!--BOTON FALSO-->
